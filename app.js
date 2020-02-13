@@ -1,6 +1,8 @@
 const Hapi = require('hapi')
 const config = require('./config')
 const routesHelloHapi= require('./routes/hello-world')
+const routesShops= require('./routes/shops')
+const routesOrders= require('./routes/orders')
 const pluginHapiSwagger = require('./plugins/hapi-swagger')
 const server = new Hapi.Server()
 
@@ -13,8 +15,9 @@ const  init = async () => {
         ...pluginHapiSwagger
     ])
     server.route([
-
-        ...routesHelloHapi
+        ...routesHelloHapi,
+        ...routesShops,
+        ...routesOrders
     ])
     await server.start()
     console.log(`Server running at${server.info.uri}`)
