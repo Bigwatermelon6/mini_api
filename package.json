@@ -11,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^16.7.0"
+    "hapi": "^16.7.0",
+    "hapi-swagger": "^7.10.0",
+    "inert": "^4.2.1",
+    "package": "^1.0.1",
+    "vision": "^4.1.1"
   }
 }

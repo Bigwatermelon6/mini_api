@@ -1,6 +1,7 @@
 const Hapi = require('hapi')
 const config = require('./config')
 const routesHelloHapi= require('./routes/hello-world')
+const pluginHapiSwagger = require('./plugins/hapi-swagger')
 const server = new Hapi.Server()
 
 server.connection({
@@ -8,6 +9,9 @@ server.connection({
     host: config.host
 })
 const  init = async () => {
+    await server.register([
+        ...pluginHapiSwagger
+    ])
     server.route([
 
         ...routesHelloHapi
