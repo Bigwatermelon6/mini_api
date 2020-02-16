@@ -7,7 +7,7 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const configs = require('../config/config');
 const config = {
-  ...configs['env'],
+  ...configs[env],
   define: {
     underscored: true,
   }

@@ -5,20 +5,23 @@ const routesShops= require('./routes/shops')
 const routesOrders= require('./routes/orders')
 const pluginHapiSwagger = require('./plugins/hapi-swagger')
 const server = new Hapi.Server()
-
+const pluginHapiPagination = require('./plugins/hapi-pagination')
 server.connection({
     port: config.post,
     host: config.host
 })
 const  init = async () => {
     await server.register([
-        ...pluginHapiSwagger
+        ...pluginHapiSwagger,
+        pluginHapiPagination
     ])
+    
     server.route([
         ...routesHelloHapi,
         ...routesShops,
         ...routesOrders
     ])
+
     await server.start()
     console.log(`Server running at${server.info.uri}`)
 }
