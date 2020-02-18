@@ -8,7 +8,7 @@ const {env} = process;
 
 module.exports = {
   'development': {
-      'username' : env.MYSQL_USERNAME,
+      'username': env.MYSQL_USERNAME,
       'password': env.MYSQL_PASSWORD,
       'database': env.MYSQL_DB_NAME,
       'host': env.MYSQL_HOST,

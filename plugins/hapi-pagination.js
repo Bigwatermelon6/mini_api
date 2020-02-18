@@ -14,7 +14,9 @@ const options = {
     },
     routes: {
         include: [
-            '/shops'
+            '/shops/goods',
+            '/shops/{shopId}/goods',
+            
         ],
         exclude: [
 

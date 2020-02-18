@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, DataTypes) => sequelize.define(
     'shops',
     {
@@ -10,7 +11,7 @@ module.exports = (sequelize, DataTypes) => sequelize.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        thumb_url: DataTypes.STRING,
+        thumb_url: DataTypes.STRING
     },
     {
         tableName: 'shops'

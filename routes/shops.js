@@ -7,7 +7,10 @@ module.exports = [
       method: 'GET',
       path: `/${GROUP_NAME}`,
       handler: async (request, reply) => {
-        const {rows: results, count: totalCount} = await models.shops.findAndCountAll({
+        const {rows: results, count: totalCount} = await models.goods.findAndCountAll({
+          where: {
+            shop_id: request.params.shopId
+          },
           attributes: [
             'id',
             'name'
@@ -40,7 +43,16 @@ module.exports = [
       method: 'GET',
       path: `/${GROUP_NAME}/{shopId}/goods`,
       handler: async (request, reply) => {
-          reply()
+        const {rows: results, count: totalCount} = await models.shops.findAndCountAll({
+          attributes: [
+            'id',
+            'name'
+          ],
+          limit: request.query.limit,
+          offset: (request.query.page -1 ) * request.query.limit
+        })
+        reply({results, totalCount})        
+          // reply()
       },
       config: {
         tags: ['api',GROUP_NAME],
